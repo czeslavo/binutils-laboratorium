@@ -70,7 +70,31 @@ adresy wywołań funkcji z biblioteki.
 
 2. Utwórz _odchudzoną_ wersję biblioteki `liblapack.a` - `liblapack_min.a`, zawierającą tylko 2 wybrane pliki obiektowe.
 
-3. Przy pomocy `nm` sprawdź symbole, jakie udostępnia zmniejszona wersja biblioteki.
+3. Przy pomocy `nm` sprawdź symbole, jakie udostępnia zmniejszona wersja biblioteki. Zwróć uwagę na wyświetlony indeks archiwum.
 
 ### Zadanie 4.
-1.
+Bez dopisywania żadnego kodu, skompiluj plik `main.c` do działającego pliku wykonywalnego. (*tip: widoczność symboli*).
+
+### Zadanie 5.
+1. Napisz własną wersję funkcji `open`, która poza wywołaniem oryginalnej funkcji, będzie wypisywać na standardowe wyjście nazwę otwieranego pliku. Aby możliwe było wywołanie funkcji o tej samej nazwie, konieczne będzie skorzystanie z dynamicznego linkera (nagłówek `<dlfcn.h>`).
+
+2. Zbuduj bibliotekę dynamiczną z nową wersją funkcji. Pamiętaj o odpowiednich flagach kompilacji: `-fPIC` i `-shared`.
+
+3. Przy pomocy zmiennej środowiskowej `LD_PRELOAD` dokonaj podmiany oryginalnej funkcji i sprawdź działanie jakiegoś programu, korzystającego z podmienianej funkcji, np. `vim`.
+
+### Zadanie 6.
+1. Sprawdź przy pomocy `ldd`, jakich bibliotek dynamicznych wymaga plik wykonywalny `main`.
+
+2. Przy pomocy `nm` znajdź niezdefiniowane symbole.
+
+3. Zdeasembluj `main` i przyjrzyj się trzem porównaniom występującym w funkcji `main`.
+
+4. Zaimplementuj niezdefiniowane funkcje w postaci biblioteki dynamicznej o odpowiedniej nazwie oraz postaraj się, aby zwracały one odpowiednie wartości (wywnioskowane na podstawie porównań w funkcji `main`) -- tylko w ten sposób program będzie mógł poinformować o Twojej wygranej .
+
+5. Przy pomocy zmiennej środowiskowej `LD_LIBRARY_PATH` spraw, aby linker mógł odnaleźć stworzoną bibliotekę.
+
+### Zadanie 7.
+Stwórz program, który pozwoli użytkownikowi na wybór w trakcie wykonywania, jaką bibliotekę ma załadować linker.
+
+### Zadanie 8.
+Napisz własny, prosty parser plików ELF.
