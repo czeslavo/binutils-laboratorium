@@ -1,8 +1,10 @@
 # Konspekt laboratorium - binutils + biblioteki statyczne/dynamiczne
 
+![elf](https://s-media-cache-ak0.pinimg.com/originals/30/ce/f7/30cef77d888aeb4709c7bd97d08fe460.png)
+
 ## 1\. Cel laboratorium
 
-Laboratorium ma na celu zapoznanie studentów z możliwościami użycia narzędzi z pakietu `binutils` oraz podstawami budowy plików wykonywalnych w formacie ELF na przykładach bibliotek statycznych i dynamicznych.
+Laboratorium ma na celu zapoznanie studentów z możliwościami użycia narzędzi z pakietu `binutils` oraz podstawami budowy plików wykonywalnych w formacie ELF.
 
 ## 2\. Cheatsheet
 
@@ -72,6 +74,8 @@ adresy wywołań funkcji z biblioteki.
 
 3. Przy pomocy `nm` sprawdź symbole, jakie udostępnia zmniejszona wersja biblioteki. Zwróć uwagę na wyświetlony indeks archiwum.
 
+4. Dodaj do utworzonej już biblioteki nowy plik obiektowy.
+
 ### Zadanie 4.
 Bez dopisywania żadnego kodu, skompiluj plik `main.c` do działającego pliku wykonywalnego. (*tip: widoczność symboli*).
 
@@ -80,7 +84,9 @@ Bez dopisywania żadnego kodu, skompiluj plik `main.c` do działającego pliku w
 
 2. Zbuduj bibliotekę dynamiczną z nową wersją funkcji. Pamiętaj o odpowiednich flagach kompilacji: `-fPIC` i `-shared`.
 
-3. Przy pomocy zmiennej środowiskowej `LD_PRELOAD` dokonaj podmiany oryginalnej funkcji i sprawdź działanie jakiegoś programu, korzystającego z podmienianej funkcji, np. `vim`.
+3. Przy pomocy zmiennej środowiskowej `LD_PRELOAD` dokonaj podmiany oryginalnej funkcji i sprawdź działanie programu, korzystającego z podmienianej funkcji, np. `vim`.
+
+Alternatywna wersja zadania: implementacja `printf`, konwertującego wszystkie wypisywane stringi do "l33ta".
 
 ### Zadanie 6.
 1. Sprawdź przy pomocy `ldd`, jakich bibliotek dynamicznych wymaga plik wykonywalny `main`.
@@ -98,13 +104,24 @@ Bez dopisywania żadnego kodu, skompiluj plik `main.c` do działającego pliku w
 
 2. Zaimplementuj dwie biblioteki dynamiczne, które będą wtyczkami dla programu. Można ograniczyć się do implementacji jednej funkcji o tym samym prototypie, np. `void init_plugin()`, wypisującej coś na ekran.
 
-3. Wtyczki umieść w katalogu `./plugins/`. Zadbaj o to, aby wtyczki były widoczne dla linkera przez użycie `rpath` lub `runpath` w pliku wykonywalnym.
+3. Wtyczki umieść w katalogu `./plugins/`. Zadbaj o to, aby wtyczki były widoczne dla linkera przez użycie `rpath` lub `runpath` w pliku wykonywalnym. Dowiedz się, która z dwóch opcji jest bardziej preferowana i dlaczego.
 
 ### Zadanie 8.
-1. Z wykorzystaniem definicji struktury nagłówka pliku ELF, napisz program, który wypisze na ekran typ pliku wykonywalnego podanego jako parametr wejściowy.
+1. Z wykorzystaniem definicji struktury nagłówka pliku ELF, napisz program, który wypisze na ekran typ pliku wykonywalnego.
 
 2. Zadbaj o sprawdzenie, czy plik jest typu ELF. (*magic bytes*)
 
-3. \* Możesz rozszerzyć program o wypisywanie nagłówka sekcji.
+3. \* Możesz rozszerzyć program o wypisywanie pozostałych pól nagłówka (na wzór `readelf -h`)
 
 ### Zadanie 9.
+1. Napisz i skompiluj dowolny program w C++, zawierający 3 przeciążenia jednej funkcji.
+
+2. Sprawdź, jak wyglądają ich nazwy w tablicy symboli.
+
+3. Przy pomocy `c++filt` dokonaj demanglacji nazw funkcji.
+
+### Zadanie 10.
+Przy pomocy narzędzia `ldconfig` sprawdź, jakie biblioteki są widoczne dla linkera.
+
+### Zadanie 11.
+Zapoznaj się ze sposobem debugowania linkowania/ładowania przy pomocy zmiennej środowiskowej `LD_DEBUG`.
