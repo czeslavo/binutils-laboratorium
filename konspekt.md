@@ -20,7 +20,7 @@ Laboratorium ma na celu zapoznanie studentów z możliwościami użycia narzędz
 | objdump         | wyświetlanie informacji z plików obiektowych                                            |
 | size            | listowanie rozmiarów sekcji i całkowitego rozmiaru plików wykonywalnych                 |
 | strings         | listowanie wszystkich możliwych do wypisania stringów zawartych w plikach wykonywalnych |
-| strip           | wycinanie symboli z plików obiektowych                                                  |
+| strip           | wycinanie symboli z plików wykonwalnych                                                 |
 | c++filt         | demanglowanie symboli c++ lub java                                                      |
 | addr2line       | konwertowanie adresów do nazw plików i numerów linii w ich obręcie                      |
 | readelf         | wyświetlanie informacji o plikach w formacie ELF                                        |
@@ -125,3 +125,9 @@ Przy pomocy narzędzia `ldconfig` sprawdź, jakie biblioteki są widoczne dla li
 
 ### Zadanie 11.
 Zapoznaj się ze sposobem debugowania linkowania/ładowania przy pomocy zmiennej środowiskowej `LD_DEBUG`.
+
+```bash
+LD_DEBUG=help ls
+```
+
+1. Sprawdź w jakiej kolejności wyszukiwane są biblioteki dynamiczne przez linker dla dowolnego programu, np. `vim`.
