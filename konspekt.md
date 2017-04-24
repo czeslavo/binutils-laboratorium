@@ -94,7 +94,17 @@ Bez dopisywania żadnego kodu, skompiluj plik `main.c` do działającego pliku w
 5. Przy pomocy zmiennej środowiskowej `LD_LIBRARY_PATH` spraw, aby linker mógł odnaleźć stworzoną bibliotekę.
 
 ### Zadanie 7.
-Stwórz program, który pozwoli użytkownikowi na wybór w trakcie wykonywania, jaką bibliotekę ma załadować linker.
+1. Napisz program, który z wykorzystaniem dynamicznego linkera, w trakcie wykonywania pozwoli użytkownikowi wybrać, którą wtyczkę załaduje.
+
+2. Zaimplementuj dwie biblioteki dynamiczne, które będą wtyczkami dla programu. Można ograniczyć się do implementacji jednej funkcji o tym samym prototypie, np. `void init_plugin()`, wypisującej coś na ekran.
+
+3. Wtyczki umieść w katalogu `./plugins/`. Zadbaj o to, aby wtyczki były widoczne dla linkera przez użycie `rpath` lub `runpath` w pliku wykonywalnym.
 
 ### Zadanie 8.
-Napisz własny, prosty parser plików ELF.
+1. Z wykorzystaniem definicji struktury nagłówka pliku ELF, napisz program, który wypisze na ekran typ pliku wykonywalnego podanego jako parametr wejściowy.
+
+2. Zadbaj o sprawdzenie, czy plik jest typu ELF. (*magic bytes*)
+
+3. \* Możesz rozszerzyć program o wypisywanie nagłówka sekcji.
+
+### Zadanie 9.
