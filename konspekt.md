@@ -74,7 +74,8 @@ adresy wywołań funkcji z biblioteki.
 
 3. Przy pomocy `nm` sprawdź symbole, jakie udostępnia zmniejszona wersja biblioteki. Zwróć uwagę na wyświetlony indeks archiwum.
 
-4. Dodaj do utworzonej już biblioteki nowy plik obiektowy.
+4. Dodaj do utworzonej już biblioteki nowy plik obiektowy _po_ pierwszym pliku obiektowym w archiwum, oraz drugi - przed
+ostatnim.
 
 ### Zadanie 4.
 Bez dopisywania żadnego kodu, skompiluj plik `main.c` do działającego pliku wykonywalnego. (*tip: widoczność symboli*).
@@ -107,7 +108,7 @@ Alternatywna wersja zadania: implementacja `printf`, konwertującego wszystkie w
 3. Wtyczki umieść w katalogu `./plugins/`. Zadbaj o to, aby wtyczki były widoczne dla linkera przez użycie `rpath` lub `runpath` w pliku wykonywalnym. Dowiedz się, która z dwóch opcji jest bardziej preferowana i dlaczego.
 
 ### Zadanie 8.
-1. Z wykorzystaniem definicji struktury nagłówka pliku ELF, napisz program, który wypisze na ekran typ pliku wykonywalnego.
+1. Z wykorzystaniem definicji struktury nagłówka pliku ELF, napisz program, który wypisze na ekran typ podanego pliku wykonywalnego.
 
 2. Zadbaj o sprawdzenie, czy plik jest typu ELF. (*magic bytes*)
 
@@ -130,4 +131,4 @@ Zapoznaj się ze sposobem debugowania linkowania/ładowania przy pomocy zmiennej
 LD_DEBUG=help ls
 ```
 
-1. Sprawdź w jakiej kolejności wyszukiwane są biblioteki dynamiczne przez linker dla dowolnego programu, np. `vim`.
+Sprawdź w jakiej kolejności wyszukiwane są biblioteki dynamiczne przez linker dla dowolnego programu, np. `vim`.
