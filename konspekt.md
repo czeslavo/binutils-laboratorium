@@ -2,6 +2,12 @@
 
 ![elf](https://s-media-cache-ak0.pinimg.com/originals/30/ce/f7/30cef77d888aeb4709c7bd97d08fe460.png)
 
+Archiwum z zadaniami, wykładem i konspektem:
+```bash
+wget https://github.com/czeslavo/binutils-laboratorium/archive/Lab03.zip
+unzip Lab03.zip
+```
+
 ## 1\. Cel laboratorium
 
 Laboratorium ma na celu zapoznanie studentów z możliwościami użycia narzędzi z pakietu `binutils` oraz podstawami budowy plików wykonywalnych w formacie ELF.
